@@ -6,9 +6,9 @@ uses `pyjs`. In particular the event loop for `async` programming relies on `pyj
 
 With the following code one can create a xeus-python instance with a custom set of packages available:
 
-```code
+```bash
 pip install jupyterlite
-pip install jupyterlite-xeus-python
+pip install jupyterlite-xeus-pythond
 jupyter lite build --XeusPythonEnv.packages=numpy,matplotlib,ipyleaflet
 jupyter lite serve
 ```
