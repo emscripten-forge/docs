@@ -57,9 +57,8 @@ which is a high level wrapper around the [file-packager](https://github.com/emsc
 
 ## pyjs
 
-[Pyjs](https://github.com/emscripten-forge/pyjs-code-runner) is a Javascript ⟺ Python foreign function interface so that you call these languages from each other.
-Pyjs is a loosly based on [pyoide](https://pyodide.org/en/stable/)
-
+[Pyjs](https://github.com/emscripten-forge/pyjs) is C++ library, compiled to wasm, which allows to run Python code in the browser or in node.
+Pyjs is a loosly based on [pyoide](https://pyodide.org/en/stable/) and comes with is a Javascript ⟺ Python foreign function interface so that you call these languages from each other.
 
 
 ## pyjs-code-runner
