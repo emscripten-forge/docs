@@ -60,10 +60,7 @@ which is a high level wrapper around the [file-packager](https://github.com/emsc
 
 ## pyjs-code-runner
 
-[pyjs-code-runner](https://github.com/emscripten-forge/pyjs-code-runner)
 
-
-pyjs-code-runner is a driver to run python code in a wasm environment, almost like running vanilla python code.
 Debugging, experimenting and testing python code from with multiple conda environment 
 in browser environment is a complex process with a lot of (complicated) steps. 
 To run code from a script one has to:
@@ -78,6 +75,34 @@ To run code from a script one has to:
 * Open a browser and observe the results of the script from the created `html` file or the console of the browser.
 
 Of course, when chaging the script we do not need to run all of these steps, but overall prodecure is way to complicated to be enjoyable.
+
+
+[pyjs-code-runner](https://github.com/emscripten-forge/pyjs-code-runner) is a driver to run python code in a wasm environment, almost like running vanilla python code. 
+It allows to run python wasm code in the browser from a normal terminal like: 
+
+```bash
+# run with node
+pyjs_code_runner run script                                                                     \
+    node                                                                                        \
+    --conda-env     ~/micromamba/envs/my_env         `# the emscripten-forge env`               \
+                                                     `# in which to run the code`               \
+                                                                                                \
+    --mount         ~/foo/bar:/home/web_user/fubar   `# Mount path to virtual filesytem`        \
+                                                     `# <HOST_MACHINE_PATH>:<TARGET_PATH>`      \
+                                                                                                \
+    --script        main.py                          `# Path of the script to run`              \
+                                                     `# (in virtual filesystem)`                \
+                                                                                                \
+    --work-dir      /home/web_user/fubar             `# Work directory `                        \
+                                                     `#in the virtual fileystem`                \
+                                                                                                \
+    --async-main                                     `# should a top-level async`               \
+                                                     `# function named main be called`          \
+                                                                                                \
+    --headless                                       `# use a headless browser to run the code` \
+
+```
+
 
 
 
