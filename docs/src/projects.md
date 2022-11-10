@@ -57,6 +57,10 @@ which is a high level wrapper around the [file-packager](https://github.com/emsc
 
 ## pyjs
 
+[Pyjs](https://github.com/emscripten-forge/pyjs-code-runner) is a Javascript ⟺ Python foreign function interface so that you call these languages from each other.
+Pyjs is a loosly based on [pyoide](https://pyodide.org/en/stable/)
+
+
 
 ## pyjs-code-runner
 
@@ -108,9 +112,9 @@ pyjs_code_runner run script                                                     
 
 ## xeus-python-lite
 
-
 [xeus-python](https://github.com/jupyterlite/xeus-python-kernel)
 
+TODO
 
 
 ## picomamba
