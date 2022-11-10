@@ -12,5 +12,5 @@ Emscripten-forge's documentation!
 .. toctree::
    src/projects.md
    src/usage.md
-
+ 
 

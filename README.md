@@ -5,4 +5,4 @@
 
 The documentation is a work in progress!
 
-[Visit the documentation](https://readthedocs.org/projects/emscripten-forge/badge/?version=latest)
+[Visit the documentation](https://emscripten-forge.readthedocs.io/en/latest/)
