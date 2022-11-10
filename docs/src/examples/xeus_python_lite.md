@@ -1,5 +1,5 @@
 
-# Xeus Python
+# Xeus Python Lite
 
 The [xeus-python](https://github.com/jupyter-xeus/xeus-python) [jupyterlite-kernel](https://github.com/jupyterlite/xeus-python-kernel)
 uses `pyjs`. In particular the event loop for `async` programming relies on `pyjs`.
