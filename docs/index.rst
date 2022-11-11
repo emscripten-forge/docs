@@ -10,7 +10,7 @@ Emscripten-forge's documentation!
    :parser: myst_parser.sphinx_
 
 .. toctree::
-   src/projects.md
+   src/projects/index.rst
    src/usage.md
    src/examples/index.rst
 
