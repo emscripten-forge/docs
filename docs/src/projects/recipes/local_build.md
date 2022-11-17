@@ -1,10 +1,8 @@
-# Build recipes locally
+# Setup Local Build
 
-Emscripten-forge recipes can be build locally.
+
+Emscripten-forge recipes can be built locally.
 To setup a local dev. environment one can either follow the steps of the [CI pipeline](https://github.com/emscripten-forge/recipes/blob/main/.github/workflows/build_recipes.yaml) or follow the steps below:
-
-
-## Setup Local Build
 
 
 
@@ -20,15 +18,25 @@ cd recipes
 
 
 Create the dev environment named `emforge` for the conda/mamba env file
-[ci_env.yaml](https://github.com/emscripten-forge/recipes/blob/main/ci_env.yml)
+[ci_env.yml](https://github.com/emscripten-forge/recipes/blob/main/ci_env.yml)
 ```
-micromamba create -n emforge -f ci_env.yaml
+micromamba create -n emforge -f ci_env.yml
+```
+
+or with conda
+```
+conda env create -n emforge --file ci_env.yml
 ```
 
 Activate the environment
 ```
 micromamba activate emforge
 ```
+or with conda
+```
+conda activate emforge
+```
+
 
 
 Install dependencies where we need non-default branches/forkes.
@@ -73,17 +81,17 @@ add_pip_as_python_dependency: false
 ```
 
 
-## Bootrap Build Recipes
+## Bootstrap Build Recipes
 
 We are almost done. We now should be able build packages. But we want to create a local conda channel st. we install
 and use the packages we build localy. To do this, we first need build an arbitrary package. This
-will popoulate the `conda-bld` directory of our `emforge` environment (ie create and fill the `$MAMBA_ROOT_PREFIX/envs/emforge/conda-bld` folder).
+will populate the `conda-bld` directory of our `emforge` environment (ie create and fill the `$MAMBA_ROOT_PREFIX/envs/emforge/conda-bld` folder).
 
 As an exemplary recipe we use [recipes/recipes_emscripten/bzip2](https://github.com/emscripten-forge/recipes/tree/main/recipes/recipes_emscripten/bzip2). 
-We need to pass `--skip-tests` because the test mechanism will only work aftger we created the local conda channel.
+We need to pass `--skip-tests` because the test mechanism will only work after we created the local conda channel.
 
 ```
-python builder.py build explicit  recipes/recipes_emscripten/bzip2    --skip-tests
+python builder.py build explicit  recipes/recipes_emscripten/bzip2   --emscripten-32 --skip-tests
 ```
 
 One the build is done we can create the local channel by adding   `$MAMBA_ROOT_PREFIX/envs/emforge/conda-bld` to condarc
@@ -92,7 +100,7 @@ One the build is done we can create the local channel by adding   `$MAMBA_ROOT_P
 conda config --add channels $MAMBA_ROOT_PREFIX/envs/emforge/conda-bld
 ```
 
-You can also manually do this by chaging your `.condarc`  st. it looks like (change `/home/username/micromamba-root` to the value of `$MAMBA_ROOT_PREFIX )
+You can also manually do this by chaging your `.condarc`  st. it looks like (change `/home/username/micromamba-root` to the value of `$MAMBA_ROOT_PREFIX )`
 
 ```yaml
 channels:
@@ -106,9 +114,8 @@ add_pip_as_python_dependency: false
 
 ## Build Recipes
 
-
-Build a package 
+Everything should be setup and recipes should build with
 
 ```
-python builder.py build explicit   recipes/recipes_emscripten/bzip2    
+python builder.py build explicit   recipes/recipes_emscripten/bzip2  --emscripten-32
 ```
