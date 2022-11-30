@@ -6,3 +6,4 @@ Recipes
    :caption: Recipes:
 
    local_build.md
+   troubleshooting_build_errors.md
